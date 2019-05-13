@@ -28,6 +28,10 @@ The name Yocajú comes from the Taíno deity by that name, that was belived to l
 4. Display municiplaity index page where municipalities contain barrios index and barrios index contain users and their safety status. 
 5. Display to non registered users municipality index, with barrios, users and safety status.
 
+### Wireframes 
+![Wireframes 1](https://i.imgur.com/q06teGy.jpg?1)
+![Wireframes 2](https://i.imgur.com/s2YSe0v.jpg?1)
+
 ### Streaches
 1. And icons that represent type of emergency or needs if the user indicates he/she/they is not safe. 
 2. Add status text area to add details about status update.
