@@ -8,7 +8,7 @@ The idea for this app was created to provide a solution to the limited access to
 
 The name Yocajú comes from the Taíno deity by that name, that was belived to live in "El Yunke Rain Forest". According to the myth he faught against the goddess Guabancex, also known as Juaracán, who was resposible for the hurricanes in the island. Up to this day, it is known that when huricanes try to enter the island through the rainforest they divert north and the hurricanes impact on the island is reduced.
 
-![Yucaju Taino Deity Image](https://i.imgur.com/AR8LJFus.jpg)  
+![Yucaju Taino Deity Image](https://i.imgur.com/AR8LJFub.jpg)  
 
 ### User Stories
 
