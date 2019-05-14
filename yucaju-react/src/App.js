@@ -5,7 +5,7 @@ import Register from './Register'
 class App extends Component {
   constructor(){
     super();
-    this.state ={
+    this.state = {
       municipalities:[],
       barrios:[]
     }
@@ -15,7 +15,7 @@ class App extends Component {
   }
   getMunicipalities = async()=>{
     try{
-      const response = await fetch('http://localhost:8000/api/v1/auth/municipalities')
+      const response = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/auth/municipalities')
       if(response.status !== 200){
           throw Error(response.statusText);
       }
@@ -35,14 +35,15 @@ class App extends Component {
     }
   }
   render(){
+    console.log(process.env)
     console.log(this.state.municipalities);
-  return (
-    <div className="App">
-      <h1>YUCAJU-App</h1>
-      <Register municipalities={this.state.municipalities}/>
-    </div>
-  );
-}
+    return (
+      <div className="App">
+        <h1>YUCAJU-App</h1>
+        <Register municipalities={this.state.municipalities}/>
+      </div>
+    );
+  }
 }
 
 export default App;
