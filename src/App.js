@@ -12,6 +12,7 @@ class App extends Component {
   }
   componentDidMount(){
     this.getMunicipalities();
+    this.getBarrios();
   }
   getMunicipalities = async()=>{
     try{
@@ -22,7 +23,7 @@ class App extends Component {
       const municipalitiesParsed = await response.json();
       const data = municipalitiesParsed.data
       const municipalityList= []
-      data.forEach((element,i)=>{
+      data.forEach((element)=>{
         municipalityList.push(element.municipality);
             })
       const municipality = [...new Set(municipalityList)]
@@ -34,13 +35,36 @@ class App extends Component {
       console.log(err);
     }
   }
+  getBarrios = async() =>{
+    // I want to fetch barrios 
+    try {
+      const response = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/auth/municipalities')
+      if(response.status !== 200){
+          throw Error(response.statusText);
+      }
+      const barriosParsed = await response.json();
+      const data = barriosParsed.data
+      //console.log(data + "this is barrios data")
+      const barriosList = []
+      data.forEach((element)=>{
+        barriosList.push(element);
+      })
+      console.log(barriosList);
+      this.setState({
+        barrios: barriosList
+      })
+
+    }catch(err){
+      console.log(err);
+    }
+  }
   render(){
-    console.log(process.env)
-    console.log(this.state.municipalities);
+    //console.log(process.env)
+    //console.log(this.state.municipalities);
     return (
       <div className="App">
         <h1>YUCAJU-App</h1>
-        <Register municipalities={this.state.municipalities}/>
+        <Register municipalities={this.state.municipalities} barrios={this.state.barrios}/>
       </div>
     );
   }
