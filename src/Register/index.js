@@ -23,9 +23,10 @@ class Register extends Component {
 			barrio: e.target.value
 		})
 	}
-	handleSubmit = async (e)=>{
+	handleSubmit = async (e) => {
 		console.log('handleSubmit has been called');
 		e.preventDefault();
+		let parseResponse = null;
 		try {
 			const regResponse = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/auth/register', {
 				method: 'POST',
@@ -36,14 +37,14 @@ class Register extends Component {
 				}
 
 			})
-			const parseRespopnse = await regResponse.json();
-        	console.log(parseRespopnse);
+			parseResponse = await regResponse.json();
+        	console.log(parseResponse);
 
 		}catch(err){
 			console.log(err);
 		}
 
-		// this.props.masterLogin(this.state.username, this.state)
+		this.props.masterLogin(parseResponse.data.username, parseResponse.data._id)
 	}
 	render(){
 		//console.log(this.state.municipality);
@@ -80,7 +81,7 @@ class Register extends Component {
 					Barrio:
 					<select name='barrio' multiple={true} onChange={this.handleBarrioChange}>
 						{ barrioList }
-					</select>
+					</select><br/>
 					<button>Register</button>
 				</form>
 			</div>

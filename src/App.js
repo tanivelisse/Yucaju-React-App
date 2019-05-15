@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Register from './Register'
+import Register from './Register';
+import Login from './Login';
+import UserProfile from './UserProfile'
 
 class App extends Component {
   constructor(){
@@ -13,19 +15,24 @@ class App extends Component {
       loggedIn: false
     }
   }
-  masterLogin(username, userId){
+  masterLogin = (username, userId) => {
+
+    console.log("master login hit")
+
     this.setState({
       loggedIn: true,
       username: username,
       userId: userId
     })
+
   }
-  masterLogout(){
+  masterLogout = () => {
     this.setState({
       loggedIn: false,
       username: '',
       userId: ''
     })
+
   }
   componentDidMount(){
     this.getMunicipalities();
@@ -80,10 +87,15 @@ class App extends Component {
   render(){
     //console.log(process.env)
     //console.log(this.state.municipalities);
+    console.log("app state: ", this.state)
+
     return (
       <div className="App">
+        {this.state.loggedIn ? <h3>You are logged in!</h3> : null}
         <h1>YUCAJU-App</h1>
-        <Register municipalities={this.state.municipalities} barrios={this.state.barrios} masterLogin={this.masterLogin}/>
+        <Register municipalities={this.state.municipalities} barrios={this.state.barrios} masterLogin={this.masterLogin} />
+        <Login masterLogin={this.masterLogin} />
+        <UserProfile/>
       </div>
     );
   }
