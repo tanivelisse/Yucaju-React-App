@@ -23,8 +23,27 @@ class Register extends Component {
 			barrio: e.target.value
 		})
 	}
-	handleSubmit = (e)=>{
+	handleSubmit = async (e)=>{
 		console.log('handleSubmit has been called');
+		e.preventDefault();
+		try {
+			const regResponse = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/auth/register', {
+				method: 'POST',
+				credentials: 'include',
+				body: JSON.stringify(this.state),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+
+			})
+			const parseRespopnse = await regResponse.json();
+        	console.log(parseRespopnse);
+
+		}catch(err){
+			console.log(err);
+		}
+
+		// this.props.masterLogin(this.state.username, this.state)
 	}
 	render(){
 		//console.log(this.state.municipality);
@@ -46,27 +65,26 @@ class Register extends Component {
 
 		return (
 			<div>
-			<h1>Register</h1>
-			<form onSubmit={this.handleSubmit}>
-			Username:
-			<input type="text" name='username' onChange={this.handleChange}/><br/>
-			Password:
-			<input type="password" name='password'  onChange={this.handleChange}/><br/>
-			Full Name:
-			<input type='text' name='name' onChange={this.handleChange}/><br/>
-			Municipality:
-			<select name='municipality' placeholder='municipality'multiple={true} onChange={this.handleChange}>
-				{ municipalityList }
-			</select><br/>
-			</form>
-			<form>
-			Barrio:
-			<select name='barrio' multiple={true} onChange={this.handleBarrioChange}>
-				{ barrioList }
-			</select>
-			</form>
+				<h1>Register</h1>
+				<form onSubmit={this.handleSubmit}>
+					Username:
+					<input type="text" name='username' onChange={this.handleChange}/><br/>
+					Password:
+					<input type="password" name='password'  onChange={this.handleChange}/><br/>
+					Full Name:
+					<input type='text' name='name' onChange={this.handleChange}/><br/>
+					Municipality:
+					<select name='municipality' placeholder='municipality'multiple={true} onChange={this.handleChange}>
+						{ municipalityList }
+					</select><br/>
+					Barrio:
+					<select name='barrio' multiple={true} onChange={this.handleBarrioChange}>
+						{ barrioList }
+					</select>
+					<button>Register</button>
+				</form>
 			</div>
-			)
+		)
 	}
 }
 

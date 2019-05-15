@@ -7,8 +7,25 @@ class App extends Component {
     super();
     this.state = {
       municipalities:[],
-      barrios:[]
+      barrios:[],
+      username: '',
+      userId: '',
+      loggedIn: false
     }
+  }
+  masterLogin(username, userId){
+    this.setState({
+      loggedIn: true,
+      username: username,
+      userId: userId
+    })
+  }
+  masterLogout(){
+    this.setState({
+      loggedIn: false,
+      username: '',
+      userId: ''
+    })
   }
   componentDidMount(){
     this.getMunicipalities();
@@ -49,7 +66,7 @@ class App extends Component {
       data.forEach((element)=>{
         barriosList.push(element);
       })
-      console.log(barriosList);
+      //console.log(barriosList);
       this.setState({
         barrios: barriosList
       })
@@ -58,13 +75,15 @@ class App extends Component {
       console.log(err);
     }
   }
+
+
   render(){
     //console.log(process.env)
     //console.log(this.state.municipalities);
     return (
       <div className="App">
         <h1>YUCAJU-App</h1>
-        <Register municipalities={this.state.municipalities} barrios={this.state.barrios}/>
+        <Register municipalities={this.state.municipalities} barrios={this.state.barrios} masterLogin={this.masterLogin}/>
       </div>
     );
   }
