@@ -91,11 +91,16 @@ class App extends Component {
 
     return (
       <div className="App">
-        {this.state.loggedIn ? <h3>You are logged in!</h3> : null}
+        
         <h1>YUCAJU-App</h1>
-        <Register municipalities={this.state.municipalities} barrios={this.state.barrios} masterLogin={this.masterLogin} />
-        <Login masterLogin={this.masterLogin} />
-        <UserProfile/>
+        { this.state.loggedIn ? <h3>You are logged in!</h3> : null}
+        { this.state.loggedIn ? <UserProfile state={this.state}/> : null}
+       
+        { !this.state.loggedIn ? <Register municipalities={this.state.municipalities} barrios={this.state.barrios} masterLogin={this.masterLogin}/> : null} 
+        { !this.state.loggedIn ? <h2>or</h2> : null }
+
+        { !this.state.loggedIn ? <Login masterLogin={this.masterLogin}/> : null}
+        
       </div>
     );
   }
