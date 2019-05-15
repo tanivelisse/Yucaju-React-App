@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Resources from '../Resources'
 
 class UserProfile extends Component {
 	constructor(){
@@ -48,7 +49,7 @@ class UserProfile extends Component {
 				<h2>Name: {this.state.name}</h2>
 				<h2>Municipality: {this.state.municipality}</h2>
 				<h2>Barrio: {this.state.barrio}</h2>
-				
+				<Resources/>
 			</div>
 		)
 	}
