@@ -39,7 +39,12 @@ class CreateResources extends Component {
 				<h1>Create Resource</h1>
 				<form onSubmit={this.handleSubmit}>
 					Type:
-					<input type='text' name='type'onChange={this.handleChange}/><br/> 
+					<select type='text' name='type'onChange={this.handleChange}>
+					<option value="water">water</option>
+					<option value = "gas/power">gas/power</option>
+					<option value="food">food</option>
+					<option value="transportation">transportation</option>
+					</select><br/> 
 					Description:
 					<textarea name='description' onChange={this.handleChange}/><br/>
 					<button>Create</button>

@@ -93,7 +93,6 @@ class App extends Component {
       <div className="App">
         
         <h1>YUCAJU-App</h1>
-        { this.state.loggedIn ? <h3>You are logged in!</h3> : null}
         { this.state.loggedIn ? <UserProfile state={this.state}/> : null}
        
         { !this.state.loggedIn ? <Register municipalities={this.state.municipalities} barrios={this.state.barrios} masterLogin={this.masterLogin}/> : null} 

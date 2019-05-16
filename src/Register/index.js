@@ -75,11 +75,11 @@ class Register extends Component {
 					Full Name:
 					<input type='text' name='name' onChange={this.handleChange}/><br/>
 					Municipality:
-					<select name='municipality' placeholder='municipality'multiple={true} onChange={this.handleChange}>
+					<select name='municipality' placeholder='municipality' onChange={this.handleChange}>
 						{ municipalityList }
 					</select><br/>
 					Barrio:
-					<select name='barrio' multiple={true} onChange={this.handleBarrioChange}>
+					<select name='barrio' onChange={this.handleBarrioChange}>
 						{ barrioList }
 					</select><br/>
 					<button>Register</button>

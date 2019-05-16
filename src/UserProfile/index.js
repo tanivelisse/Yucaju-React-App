@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Resources from '../Resources'
+import Resources from '../Resources';
+import EditResource from '../EditResource'
 
 class UserProfile extends Component {
 	constructor(){
@@ -10,7 +11,13 @@ class UserProfile extends Component {
 			municipality:'',
 			barrio:'',
 			safety:'',
-			resources: []
+			resources: [],
+			resourceToEdit: {
+				_id:null,
+				type: '',
+				description:''
+			},
+			modalShowing: false
 		}
 	}
 	componentDidMount(){
@@ -40,20 +47,62 @@ class UserProfile extends Component {
 		
 
 	}
-	// getResources = async() =>{
-	// 	console.log('getResources was called');
-	// 	try {
-	// 		const foundResources = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/resources')
-	// 		if(foundUser.status !== 200){
- //        		throw Error(foundUser.statusText);
- //      		}
- //      		const parsedResources = await foundResources.json();
- //      		console.log(parsedResources.data.resources); 
-	// 	}catch(err){
-	// 		console.log(err);
-	// 	}
-	// }
+	editResource = async(e)=> {
+		e.preventDefault();
+		let resourceId = this.state.resourceToEdit._id
+		//console.log(resourceId);
+		//console.log('editResouce was called');
+		//console.log('e.target');
+		//console.log(e.target);
+		
+		try{
+			const editedResource = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/resources/' + resourceId + '/update', {
+				method: 'PUT',
+        		body: JSON.stringify(this.state.resourceToEdit),
+        		headers: {
+          			'Content-Type': 'application/json'
+        		}
+			});
+			const parsedResource = await editedResource.json();
+			console.log(parsedResource + " parsedResource edit route");
+			console.log(this.state.resources + " resources array");
+			const editedResourceArray = this.state.resources.map((resource) => {
+				console.log('editedResourceArray was called');
+        		if(resource._id === this.state.resourceToEdit._id){
+
+           		 	resource = parsedResource.data;
+        		}
+        		return resource
+        	})
+        	this.setState({
+        		resources: editedResourceArray,
+       			modalShowing: false
+      		});
+        
+
+		}catch(err){
+			console.log(err);
+		}
+	}
+	handleFormChange = (e) => {
+    	this.setState({
+    	  resourceToEdit: {
+        	...this.state.resourceToEdit,
+        	[e.target.name]: e.target.value
+      		}
+    	})
+  	}
+  	showModal = (resourceToEdit) => {
+   	 	console.log(resourceToEdit + '<-- in showModal')
+    	this.setState({
+     		modalShowing: true,
+      		resourceToEdit:resourceToEdit
+      		
+    	});
+  	}
 	render(){
+		console.log('resourceToEdit');
+		console.log(this.state.resourceToEdit);
 		console.log("user profile resources: ")
 		console.log(this.state.resources);
 		return(
@@ -63,7 +112,8 @@ class UserProfile extends Component {
 				<h2>Name: {this.state.name}</h2>
 				<h2>Municipality: {this.state.municipality}</h2>
 				<h2>Barrio: {this.state.barrio}</h2>
-				<Resources resources={this.state.resources} userId={this.props.state.userId}/>
+				{this.state.modalShowing ? <EditResource editResource={this.editResource} resourceToEdit={this.state.resourceToEdit} handleFormChange={this.handleFormChange}/> : null}
+				<Resources resources={this.state.resources} userId={this.props.state.userId}showModal={this.showModal}/>
 			</div>
 		)
 	}
