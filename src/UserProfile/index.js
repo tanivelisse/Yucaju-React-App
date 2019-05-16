@@ -100,6 +100,23 @@ class UserProfile extends Component {
       		
     	});
   	}
+  	deleteResource = async(resourceId, e) =>{
+  		console.log('this is resource id');
+  		console.log(resourceId);
+  		e.preventDefault();
+  		try {
+  			const deletedResource = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/resources/' + resourceId, {
+  				method: 'DELETE'
+  			})
+  			await deletedResource.json();
+  			this.setState({
+  				resources: this.state.resources.filter((resource)=> resource._id !== resourceId)
+  			})
+
+  		}catch(err){
+  			console.log(err + 'delete err');
+  		}
+  	}
 	render(){
 		console.log('resourceToEdit');
 		console.log(this.state.resourceToEdit);
@@ -113,7 +130,7 @@ class UserProfile extends Component {
 				<h2>Municipality: {this.state.municipality}</h2>
 				<h2>Barrio: {this.state.barrio}</h2>
 				{this.state.modalShowing ? <EditResource editResource={this.editResource} resourceToEdit={this.state.resourceToEdit} handleFormChange={this.handleFormChange}/> : null}
-				<Resources resources={this.state.resources} userId={this.props.state.userId}showModal={this.showModal}/>
+				<Resources resources={this.state.resources} userId={this.props.state.userId}showModal={this.showModal} delete={this.deleteResource}/>
 			</div>
 		)
 	}

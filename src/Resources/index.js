@@ -32,7 +32,7 @@ class Resources extends Component {
 					<span>{name.type}</span><br/>
 					<span>{name.description}</span><br/>
         			<button onClick={this.props.showModal.bind(null, name)}>Edit</button>
-					<button>Delete</button>
+					<button onClick={this.props.delete.bind(null, name._id)}>Delete</button>
 				</li>
 			)
 		})
