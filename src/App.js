@@ -87,7 +87,7 @@ class App extends Component {
   render(){
     //console.log(process.env)
     //console.log(this.state.municipalities);
-    console.log("app state: ", this.state)
+    //console.log("app state: ", this.state)
 
     return (
       <div className="App">

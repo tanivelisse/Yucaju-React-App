@@ -10,7 +10,7 @@ class UserProfile extends Component {
 			municipality:'',
 			barrio:'',
 			safety:'',
-			resources:[]
+			resources: []
 		}
 	}
 	componentDidMount(){
@@ -23,16 +23,16 @@ class UserProfile extends Component {
 			const userId = this.props.state.userId
 			const foundUser = await fetch( process.env.REACT_APP_SERVER_URL + '/api/v1/users/' + userId)	
 			if(foundUser.status !== 200){
-        	// for http errors, Fetch doesn't reject the promise on 404 or 500
         		throw Error(foundUser.statusText);
       		}
       		const parsedUser = await foundUser.json();
-      		console.log(parsedUser.data.username + 'this is parsedUser');
+      		// console.log(parsedUser.data.resources + ' this is parsedUser');
       		this.setState({
       			username: parsedUser.data.username,
 				name: parsedUser.data.name,
 				municipality:parsedUser.data.municipality,
-				barrio:parsedUser.data.barrio
+				barrio:parsedUser.data.barrio,
+				resources: parsedUser.data.resources
       		})
 		}catch(err){
 			console.log(err)
@@ -40,8 +40,22 @@ class UserProfile extends Component {
 		
 
 	}
+	// getResources = async() =>{
+	// 	console.log('getResources was called');
+	// 	try {
+	// 		const foundResources = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/resources')
+	// 		if(foundUser.status !== 200){
+ //        		throw Error(foundUser.statusText);
+ //      		}
+ //      		const parsedResources = await foundResources.json();
+ //      		console.log(parsedResources.data.resources); 
+	// 	}catch(err){
+	// 		console.log(err);
+	// 	}
+	// }
 	render(){
-		//console.log(this.state);
+		console.log("user profile resources: ")
+		console.log(this.state.resources);
 		return(
 			<div>
 				<h1>UserProfile</h1>
@@ -49,7 +63,7 @@ class UserProfile extends Component {
 				<h2>Name: {this.state.name}</h2>
 				<h2>Municipality: {this.state.municipality}</h2>
 				<h2>Barrio: {this.state.barrio}</h2>
-				<Resources/>
+				<Resources resources={this.state.resources} userId={this.props.state.userId}/>
 			</div>
 		)
 	}
