@@ -1,42 +1,75 @@
 
 body {
-  background: #8EBF5F ;
+  background: url(https://i.imgur.com/AR8LJFu.jpg);
+  background-size: cover;
+  background-position: center;
   color: azure;
   font-family: 'Catamaran', sans-serif;
   font-size: 14pt;
+  text-decoration-style: bold;
 }
 .App {
 	margin: 0 auto;
-	padding-bottom: 30px;
+	padding-bottom: 50px;
 	text-align: center;
 
 }
 
 h1 {
+	background: rgba(190,229,153,.8);
+	color: azure;
 	margin: 5px;
+	text-decoration-style: bold;
 }
 h2 {
+	background: rgba(190,229,153,.8);
 	margin: 5px;
 }
 
 h3 {
-	font-family: 'Righteous', cursive;
 	margin: 5px;
 }
 
 h4 {
-	margin: 2px;
+	background: rgba(190,229,153,.8);
+	margin: 2px 5px;
 }
+.create {
+	margin: 5px;
+	background: rgba(190,229,153,.8);
+}
+
+
+
+.edit {
+	margin: 5px;
+	background: rgba(190,229,153,.8);
+}
+
 
 li {
 	list-style: none;
 	font-size: 14pt;
 }
 button {
-	background: #427213;
+	background:  #BEE599 ;
+	border: 1px solid #427213;
 	border-radius: 20px;
+}
+
+.navButtons {
+	height: 50px;
+	width: 300px;
+	font-family: 'Catamaran', sans-serif;
+	font-size: 18pt;
 	color: azure;
 }
+
+#oneResource {
+	background: rgba(190,229,153,.8); 
+	margin: 5px;
+}
+
 select {
 	background: #BEE599 ;
 	border-radius: 5px;

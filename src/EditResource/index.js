@@ -3,8 +3,8 @@ import React from 'react';
 const EditResource = (props) =>  {
 
   return (
-    <div>
-      <h4> Edit Resource</h4>
+    <div className='edit'>
+      <h3> Edit Resource</h3>
       <form onSubmit={props.editResource}>
         <label>
           Edit Type:

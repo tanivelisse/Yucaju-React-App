@@ -1,46 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class AllResources extends Component {
-	constructor(){
-		super();
-		this.state = {
-			allUsersResources: ''
-		}
-	}
-	componentDidMount(){
-		this.getAllUsersResources()
-	}
-	getAllUsersResources = async()=> {
-		let parseResource = null;
-		try{
-		const foundResources = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/resources')
-		parseResource = await foundResources.json();
-
-		}catch(err){
-			console.log(err);
-		}
-		this.setState({
-			allUsersResources: parseResource.data
-		})
-	}
-		
-		// const displayAllResources = this.state.map((resource,i)=>{
-		// 	return(
-		// 		<li key={i} value={resource}>
-		// 			<span>{resource.type}</span><br/>
-		// 			<span>{resource.description}</span><br/>
-		// 		</li>
-		// 	)
-		// })
-	render(){
-		console.log(this.state.allUsersResources);
+const AllResources =(props)=> {
+	
+	
+	console.log('allUsersResources in AllResources Component');
+	console.log(props.state.allUsersResources);
+	const resourcesToDisplay = props.state.allUsersResources;
+	const displayAllResources = resourcesToDisplay.map((resource,i)=>{
 		return(
-			<div>
-				<h2>All resources in the area</h2>
-					
-			</div>
+			<li id='oneResource'key={i} value={resource}>
+				<span>{resource.type}</span><br/>
+				<span>{resource.description}</span><br/>
+			</li>
 		)
-	}
+	})
+	console.log(props.state.allUsersResources);
+	return(
+		<div className='AllResources'>
+			<button className="navButtons" onClick={props.displayProfile}>Back to Profile</button>
+			<h2>All resources in the area</h2>
+			 {displayAllResources}	
+		</div>
+	)
+
 }
 
 export default AllResources;

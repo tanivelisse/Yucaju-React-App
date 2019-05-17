@@ -13,9 +13,29 @@ class App extends Component {
       barrios:[],
       username: '',
       userId: '',
-      loggedIn: false
+      loggedIn: false,
+      allUsersResources:'',
+      showResources: false,
+      showProfile: true
     }
   }
+
+  displayResources = () => {
+    // setState so that showResources is true AND showProfile is false 
+    this.setState({
+      showResources: true,
+      showProfile:false
+    })
+  }
+
+  displayProfile = () => {
+    // setState so that showProfile is true AND showResources is false 
+    this.setState({
+      showProfile:true,
+      showResources:false
+    })
+  }
+
   masterLogin = (username, userId) => {
 
     console.log("master login hit")
@@ -38,6 +58,7 @@ class App extends Component {
   componentDidMount(){
     this.getMunicipalities();
     this.getBarrios();
+    this.getAllUsersResources();
   }
   getMunicipalities = async()=>{
     try{
@@ -83,7 +104,20 @@ class App extends Component {
       console.log(err);
     }
   }
+  getAllUsersResources = async()=> {
+    let parseResource = null;
+    try{
+    const foundResources = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/resources')
+    parseResource = await foundResources.json();
 
+    }catch(err){
+      console.log(err);
+    }
+    this.setState({
+      allUsersResources: parseResource.data
+    })
+    console.log(parseResource);
+  }
 
   render(){
     //console.log(process.env)
@@ -94,8 +128,9 @@ class App extends Component {
       <div className="App">
         
         <h1>YUCAJU-App</h1>
-        { this.state.loggedIn ? <UserProfile state={this.state}/> : null}
-        { this.state.loggedIn ? <AllResources state={this.sate}/> : null }
+
+        { this.state.loggedIn && this.state.showProfile ? <UserProfile state={this.state} displayResources={this.displayResources}/> : null}
+        { this.state.loggedIn && this.state.showResources ? <AllResources state={this.state} displayProfile={this.displayProfile}/> : null }
        
         { !this.state.loggedIn ? <Register municipalities={this.state.municipalities} barrios={this.state.barrios} masterLogin={this.masterLogin}/> : null} 
         { !this.state.loggedIn ? <h3>- OR- </h3> : null }

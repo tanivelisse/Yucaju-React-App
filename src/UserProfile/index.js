@@ -130,6 +130,7 @@ class UserProfile extends Component {
 		console.log(this.state.resourceToEdit);
 		console.log("user profile resources: ")
 		console.log(this.state.resources);
+		console.log(this.props);
 		return(
 			<div>
 				<h1>UserProfile</h1>
@@ -137,9 +138,10 @@ class UserProfile extends Component {
 				<h4>Name: {this.state.name}</h4>
 				<h4>Municipality: {this.state.municipality}</h4>
 				<h4>Barrio: {this.state.barrio}</h4>
-				<CreateResources getCreatedResorces={this.getCreatedResorces}/>
 				{this.state.modalShowing ? <EditResource editResource={this.editResource} resourceToEdit={this.state.resourceToEdit} handleFormChange={this.handleFormChange}/> : null}
 				<Resources resources={this.state.resources} userId={this.props.state.userId}showModal={this.showModal} delete={this.deleteResource}/>
+				<CreateResources getCreatedResorces={this.getCreatedResorces}/>
+				<button className="navButtons" onClick={this.props.displayResources}>All Resources in your area</button>
 			</div>
 		)
 	}

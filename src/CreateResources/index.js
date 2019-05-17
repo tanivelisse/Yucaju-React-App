@@ -39,8 +39,8 @@ class CreateResources extends Component {
 	render(){
 		//console.log(this.state);
 		return(
-			<div>
-				<h2>Create Resource</h2>
+			<div className="create">
+				<h3>Create Resource</h3>
 				<form onSubmit={this.handleSubmit}>
 					Type:
 					<select type='text' name='type' value={this.state.type}onChange={this.handleChange}>
