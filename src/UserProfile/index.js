@@ -133,10 +133,10 @@ class UserProfile extends Component {
 		return(
 			<div>
 				<h1>UserProfile</h1>
-				<h2>Username: {this.state.username}</h2>
-				<h2>Name: {this.state.name}</h2>
-				<h2>Municipality: {this.state.municipality}</h2>
-				<h2>Barrio: {this.state.barrio}</h2>
+				<h4>Username: {this.state.username}</h4>
+				<h4>Name: {this.state.name}</h4>
+				<h4>Municipality: {this.state.municipality}</h4>
+				<h4>Barrio: {this.state.barrio}</h4>
 				<CreateResources getCreatedResorces={this.getCreatedResorces}/>
 				{this.state.modalShowing ? <EditResource editResource={this.editResource} resourceToEdit={this.state.resourceToEdit} handleFormChange={this.handleFormChange}/> : null}
 				<Resources resources={this.state.resources} userId={this.props.state.userId}showModal={this.showModal} delete={this.deleteResource}/>

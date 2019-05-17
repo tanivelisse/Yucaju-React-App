@@ -40,7 +40,7 @@ class CreateResources extends Component {
 		//console.log(this.state);
 		return(
 			<div>
-				<h1>Create Resource</h1>
+				<h2>Create Resource</h2>
 				<form onSubmit={this.handleSubmit}>
 					Type:
 					<select type='text' name='type' value={this.state.type}onChange={this.handleChange}>
@@ -51,7 +51,7 @@ class CreateResources extends Component {
 					<option value="transportation">transportation</option>
 					</select><br/> 
 					Description:
-					<textarea name='description'value={this.state.description} onChange={this.handleChange}/><br/>
+					<br/><textarea name='description'value={this.state.description} onChange={this.handleChange}/><br/>
 					<button>Create</button>
 				</form>
 			</div>

@@ -1,11 +1,58 @@
 
 body {
   background: #8EBF5F ;
+  color: azure;
+  font-family: 'Catamaran', sans-serif;
+  font-size: 14pt;
 }
 .App {
-  text-align: center;
+	margin: 0 auto;
+	padding-bottom: 30px;
+	text-align: center;
+
 }
 
+h1 {
+	margin: 5px;
+}
+h2 {
+	margin: 5px;
+}
+
+h3 {
+	font-family: 'Righteous', cursive;
+	margin: 5px;
+}
+
+h4 {
+	margin: 2px;
+}
+
+li {
+	list-style: none;
+	font-size: 14pt;
+}
+button {
+	background: #427213;
+	border-radius: 20px;
+	color: azure;
+}
+select {
+	background: #BEE599 ;
+	border-radius: 5px;
+}
+
+input {
+	border: 1px solid darkgreen;
+	border-radius: 10px;
+}
+
+textarea {
+	border: 1px solid darkgreen;
+	border-radius: 10px;
+	height:100px;
+	width: 200px;
+}
 
 
 

@@ -14,12 +14,12 @@ const EditResource = (props) =>  {
 			<option value="food">food</option>
 			<option value="transportation">transportation</option>
           </select>
-        </label>
+        </label><br/>
         <label>
           Edit Description:
           <textarea type="text" name="description" onChange={props.handleFormChange} value={props.resourceToEdit.description}/>
-        </label>
-        <input type='Submit'/>
+        </label><br/>
+        <button>Update</button>
       </form>
     </div>
 

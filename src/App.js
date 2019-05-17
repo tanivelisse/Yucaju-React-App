@@ -3,6 +3,7 @@ import './App.css';
 import Register from './Register';
 import Login from './Login';
 import UserProfile from './UserProfile'
+import AllResources from './AllResources'
 
 class App extends Component {
   constructor(){
@@ -94,9 +95,10 @@ class App extends Component {
         
         <h1>YUCAJU-App</h1>
         { this.state.loggedIn ? <UserProfile state={this.state}/> : null}
+        { this.state.loggedIn ? <AllResources state={this.sate}/> : null }
        
         { !this.state.loggedIn ? <Register municipalities={this.state.municipalities} barrios={this.state.barrios} masterLogin={this.masterLogin}/> : null} 
-        { !this.state.loggedIn ? <h2>or</h2> : null }
+        { !this.state.loggedIn ? <h3>- OR- </h3> : null }
 
         { !this.state.loggedIn ? <Login masterLogin={this.masterLogin}/> : null}
         
