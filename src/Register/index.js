@@ -60,7 +60,9 @@ class Register extends Component {
 			//console.log(this.state.municipality);
 			//console.log(name.municipality);
 			if(name.municipality === this.state.municipality){
-				return( <option key={i} value={name.barrio}> {name.barrio} </option> )
+				return( 
+					<option key={i} value={name.barrio}> {name.barrio} </option> 
+				)
 			}
 		})
 
@@ -76,10 +78,12 @@ class Register extends Component {
 					<input type='text' name='name' onChange={this.handleChange}/><br/>
 					Municipality:
 					<select name='municipality' placeholder='municipality' onChange={this.handleChange}>
+						<option value="">Choose Municipality</option>
 						{ municipalityList }
 					</select><br/>
 					Barrio:
 					<select name='barrio' onChange={this.handleBarrioChange}>
+						<option value="">Choose Barrio</option>
 						{ barrioList }
 					</select><br/>
 					<button>Register</button>

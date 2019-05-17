@@ -31,6 +31,10 @@ class CreateResources extends Component {
 			console.log(err);
 		}
 		this.props.getCreatedResorces(parseResource.data);
+		this.setState({
+			type: '',
+			description:''
+		})
 	}
 	render(){
 		//console.log(this.state);
@@ -39,14 +43,15 @@ class CreateResources extends Component {
 				<h1>Create Resource</h1>
 				<form onSubmit={this.handleSubmit}>
 					Type:
-					<select type='text' name='type'onChange={this.handleChange}>
+					<select type='text' name='type' value={this.state.type}onChange={this.handleChange}>
+					<option value="">select</option>
 					<option value="water">water</option>
 					<option value = "gas/power">gas/power</option>
 					<option value="food">food</option>
 					<option value="transportation">transportation</option>
 					</select><br/> 
 					Description:
-					<textarea name='description' onChange={this.handleChange}/><br/>
+					<textarea name='description'value={this.state.description} onChange={this.handleChange}/><br/>
 					<button>Create</button>
 				</form>
 			</div>
