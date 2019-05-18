@@ -2,40 +2,42 @@
 
 ### The idea
 
-The idea for this app was created to find a solution to the dificulty to communicate in the island of Puerto Rico durring the aftermath of a Hurricane. After Hurricane Maria this was a source of numerous problems. Among them the difficulty of contacting friends and family in the island, specially by la "diaspora"(Puerto Ricans that live outside of the island, mainly in the USA). Cellphone reception and data service, if available, was sporadic and required people to move by car to spots where they could find them. Social media post where a quick way to report, but this tools can get overcrowded with other news and information. With this app I hope to create a simple way for the user to report a "safe" status quickly. Also the user will be able to share the type of resources available with a description of it's location. 
+The idea for this app was created to find a solution to the difficulty to communicate in the island of Puerto Rico during the aftermath of a Hurricane. After Hurricane Maria this was a source of numerous problems. Cellphone reception and data service, if available, was sporadic and required people to move by car to spots where they could find them. Social media post where a quick way to communicate, but this tools can get overcrowded with other news and information. All of this resulted in communities becoming their own first responders. With this app I hope to create a simple way for the user share the resources available with a description of it's location in their immediate community to facilitate the spread of important information. 
 
 ### The name 
 
-The name Yocajú comes from the Taíno deity by that name, that was belived to live in "El Yunke Rain Forest". According to the myth he faught against the goddess Guabancex, also known as Juaracán, who was resposible for the hurricanes in the island. Up to this day, it is known that when huricanes try to enter the island through the rainforest they divert north and the hurricanes impact on the island is reduced.
+The name Yocajú comes from the Taíno deity by that name, that was believed to live in "El Yunque Rain Forest". According to the myth he fought against the goddess Guabancex, also known as Juaracán, who was responsible for the hurricanes in the island. Up to this day, it is known that when the eye of a hurricane tries to enter the island through the rainforest's, it diverts north and the hurricane's impact on the island is reduced.
+
 
 ![Yucaju Taino Deity Image](https://i.imgur.com/AR8LJFu.jpg)  
 
 ### User Stories
 
 1. The main users of this app will be residents of Puerto Rico.
-2. This app will allow Puerto Rico residents users to report their status as safe after the event of a hurricane.
-3. The user will sign up previus to the hurricane emergency with username, password, name, municipality and barrio.
-3. After sign-up/login the user will be redirected to his/hers/their profile page where he/she/they can update safety status by using a checkbox, as well as update their municipality and barrio.  
-4. The user will be able to use a navigation bar to acces the index of municipalities and their barrios to locate other users in the respective barrios and check their safety status.  
-5. Users that are not residents of Puerto Rico will not register, but will be able to have acces to the safety status reported by registered users.
-6. When the user clicks the weather alert component he will have access to any weather alerts for his hometown. 
+2. This app will allow Puerto Rico residents users to create, post, and find resources in their immediate "barrios" (neighborhoods).
+3. The user will sign up previous to the hurricane emergency with username, password, name, municipality and barrio.
+3. After sign-up/login the user will be redirected to his/hers/their profile page where he/she/they can create their resources post and click on the "all resources" button to access more resources in their neighborhood. 
+ Users that are not residents of Puerto Rico will not register, but will be able to have access to the safety status reported by registered users.
+
 
 ### MVP
 
 1. Sign-up form with username, password, name, municipality and barrio.
-2. Display profile page with username, name, municipality, barrio and safety checkbox. 
-3. Update user location in municipality and barrio properties. 
-4. Display municiplaity index page where municipalities contain barrios index and barrios index contain users and their safety status. 
-5. Display to non registered users municipality index, with barrios, users and safety status.
+2. Display profile page with username, name, municipality, barrio and user resources. 
+3. Create, read, update and delete resources in user profile.
+4. Navigate to all resources component and back to profile. 
+
 
 ### Wireframes 
 ![Wireframes 1](https://i.imgur.com/q06teGy.jpg?1)
 ![Wireframes 2](https://i.imgur.com/s2YSe0v.jpg?1)
 
-### Streaches
-1. And icons that represent type of emergency or needs if the user indicates he/she/they is not safe. 
-2. Add status text area to add details about status update.
+### Stretches
 
+1. Add check-box to report safety status.
+2. And icons that represent type of emergency or if the user indicates he/she/they is not safe. 
+3. Add more components to display all users according to 'barrios' and their safety status. 
+4. Add weather alerts using 3rd party API. 
 
 
 
