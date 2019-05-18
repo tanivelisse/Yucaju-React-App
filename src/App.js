@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import Register from './Register';
 import Login from './Login';
-import UserProfile from './UserProfile'
-import AllResources from './AllResources'
+import UserProfile from './UserProfile';
+import AllResources from './AllResources';
+
+//APP.JS STATE IS USED TO RENDER REGISTER COMPONENT, LOGIN COMPONENT, USERPROFILE COMPONENT & ALLRESOURCES COMPONENT
 
 class App extends Component {
   constructor(){
@@ -37,9 +39,7 @@ class App extends Component {
   }
 
   masterLogin = (username, userId) => {
-
     console.log("master login hit")
-
     this.setState({
       loggedIn: true,
       username: username,
@@ -60,6 +60,7 @@ class App extends Component {
     this.getBarrios();
     this.getAllUsersResources();
   }
+  //THIS DATA WILL BE IN APP STATE AND USED IN REGISTER COMPONENT
   getMunicipalities = async()=>{
     try{
       const response = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/auth/municipalities')
@@ -81,6 +82,7 @@ class App extends Component {
       console.log(err);
     }
   }
+  //THIS DATA WILL BE IN APP STATE AND USED IN REGISTER COMPONENT
   getBarrios = async() =>{
     // I want to fetch barrios 
     try {
@@ -104,6 +106,7 @@ class App extends Component {
       console.log(err);
     }
   }
+  //THIS DATA WILL BE IN APP STATE AND USED IN THE ALLRESOURCES COMPONENT
   getAllUsersResources = async()=> {
     let parseResource = null;
     try{
@@ -134,7 +137,6 @@ class App extends Component {
        
         { !this.state.loggedIn ? <Register municipalities={this.state.municipalities} barrios={this.state.barrios} masterLogin={this.masterLogin}/> : null} 
         { !this.state.loggedIn ? <h3>- OR- </h3> : null }
-
         { !this.state.loggedIn ? <Login masterLogin={this.masterLogin}/> : null}
         
       </div>

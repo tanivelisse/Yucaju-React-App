@@ -1,10 +1,12 @@
 import React from 'react';
 
+//THIS COMPONENT HAS ALL RESOURCES FROM ALL USERS FOR DISPLAY
+//IT GET'S THE PROPS FROM APP.JS
+
 const AllResources =(props)=> {
 	
-	
-	console.log('allUsersResources in AllResources Component');
-	console.log(props.state.allUsersResources);
+	//console.log('allUsersResources in AllResources Component');
+	//console.log(props.state.allUsersResources);
 	const resourcesToDisplay = props.state.allUsersResources;
 	const displayAllResources = resourcesToDisplay.map((resource,i)=>{
 		return(
@@ -14,12 +16,12 @@ const AllResources =(props)=> {
 			</li>
 		)
 	})
-	console.log(props.state.allUsersResources);
+	
 	return(
 		<div className='AllResources'>
 			<button className="navButtons" onClick={props.displayProfile}>Back to Profile</button>
 			<h2>All resources in the area</h2>
-			 {displayAllResources}	
+				 {displayAllResources}	
 		</div>
 	)
 

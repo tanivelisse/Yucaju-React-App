@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+//REGISTER COMPONENT
+
 class Register extends Component {
 	constructor(){
 		super();
@@ -11,20 +13,23 @@ class Register extends Component {
 			barrio: ''
 		}
 	}
+
 	handleChange = (e)=>{
-		console.log('handleChange has been called');
+		//console.log('handleChange has been called');
 		this.setState({
 			[e.target.name]: e.target.value
 		})
 	}
+	//DIFFERENT HANDLE SINCE IT DEPENDS ON MUNICIPLAITY TO GET BARRIOS OPTIONS FOR THE SELECT TAG
 	handleBarrioChange =(e)=>{
-		console.log('handleBarrioChange has been called');
+		//console.log('handleBarrioChange has been called');
 		this.setState({
 			barrio: e.target.value
 		})
 	}
+
 	handleSubmit = async (e) => {
-		console.log('handleSubmit has been called');
+		//console.log('handleSubmit has been called');
 		e.preventDefault();
 		let parseResponse = null;
 		try {
@@ -44,18 +49,20 @@ class Register extends Component {
 			console.log(err);
 		}
 
+		//STATE IS LIFTED TO APP.JS
 		this.props.masterLogin(parseResponse.data.username, parseResponse.data._id)
 	}
+
 	render(){
 		//console.log(this.state.municipality);
 		//console.log(this.props.barrios);
 
+		//RENDERS MUNICIPALITIES DATA/ API CALL IN APP.JS
 		const municipalityList = this.props.municipalities.map((name, i) => {
-			//console.log(name + " name element in municipalityList");
-			//console.log(i);
 			 return(<option key={i} value={name}> {name} </option>)
 		})
-		//when the municiplaity is set, the barrios will display
+
+		//RENDERS BARRIOS ACCORDING TO THE SELECTED MUNICIPALITY. 
 		const barrioList = this.props.barrios.map((name,i)=>{
 			//console.log(this.state.municipality);
 			//console.log(name.municipality);
@@ -78,13 +85,13 @@ class Register extends Component {
 					<input type='text' name='name' onChange={this.handleChange}/><br/>
 					Municipality:
 					<select name='municipality' placeholder='municipality' onChange={this.handleChange}>
-						<option value="">Choose Municipality</option>
-						{ municipalityList }
+						<option value="">Select Municipality</option>
+							{ municipalityList }
 					</select><br/>
 					Barrio:
 					<select name='barrio' onChange={this.handleBarrioChange}>
-						<option value="">Choose Barrio</option>
-						{ barrioList }
+						<option value="">Select Barrio</option>
+							{ barrioList }
 					</select><br/>
 					<button>Register</button>
 				</form>

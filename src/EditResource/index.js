@@ -1,5 +1,7 @@
 import React from 'react';
 
+//THIS COMPONENT RENDERS EDIT RESOURCES MODAL
+
 const EditResource = (props) =>  {
 
   return (
@@ -10,9 +12,9 @@ const EditResource = (props) =>  {
           Edit Type:
           <select type="text" name="type" onChange={props.handleFormChange} value={props.resourceToEdit.type}>
           	<option value="water">water</option>
-			<option value = "gas/power">gas/power</option>
-			<option value="food">food</option>
-			<option value="transportation">transportation</option>
+      			<option value = "gas/power">gas/power</option>
+      			<option value="food">food</option>
+      			<option value="transportation">transportation</option>
           </select>
         </label><br/>
         <label>
@@ -23,7 +25,7 @@ const EditResource = (props) =>  {
       </form>
     </div>
 
-    )
-  }
+  )
+}
 
 export default EditResource;

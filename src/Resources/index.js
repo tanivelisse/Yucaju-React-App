@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+//THIS COMPONENT HAS ONLY THE LOGED USER RESOURCES FOR DISPLAY IN USER PROFILE.
+ 
 class Resources extends Component {
 	constructor(props){
 		super();
@@ -8,8 +10,6 @@ class Resources extends Component {
 		}
 	}	
 	render(){
-
-		
 		
 		const userResources = this.props.resources.map( (name,i )=> {
 			//console.log(name + " this is name in userResources");

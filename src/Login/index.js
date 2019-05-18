@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+//LOGIN COMPONENT 
+//PROPS FROM APP.JS
+
 class Login extends Component {
 	constructor(){
 		super();
@@ -8,12 +11,14 @@ class Login extends Component {
 			password:''
 		}
 	}
+
 	handleChange = (e)=>{
 		console.log('handleChange was called');
 		this.setState({
 			[e.target.name]: e.target.value
 		})
 	}
+
 	handleSubmit = async(e)=>{
 		console.log('handleSubmit was called');
 		e.preventDefault();
@@ -32,8 +37,11 @@ class Login extends Component {
 		}catch(err){
 			console.log(err);
 		}
+
+		//STATE IS LIFTED TO APP.JS
 		this.props.masterLogin(parseResponse.data.username, parseResponse.data._id)
 	}
+
 	render(){
 		return(
 			<div>

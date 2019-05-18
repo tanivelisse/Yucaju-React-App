@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+//THIS COMPONENT RENDERS AND CALLS API TO CREATE RESOURCES 
+//PROPS PASSED FROM USERPROFILE
+//IT LIFTS STATE TO USER PROFILE
+
 class CreateResources extends Component {
 	constructor(){
 		super();
@@ -8,11 +12,13 @@ class CreateResources extends Component {
 			description:''
 		}
 	}
+
 	handleChange = (e)=>{
 		this.setState({
 			[e.target.name]: e.target.value
 		})
 	} 
+
 	handleSubmit = async(e) =>{
 		e.preventDefault();
 		let parseResource = null;
@@ -26,10 +32,12 @@ class CreateResources extends Component {
 				}
 			})
 			parseResource = await createdResource.json();
-			console.log(parseResource);
+			//console.log(parseResource);
 		}catch(err){
 			console.log(err);
 		}
+
+		//LIFTING STATE TO USERPROFILE
 		this.props.getCreatedResorces(parseResource.data);
 		this.setState({
 			type: '',
@@ -44,11 +52,11 @@ class CreateResources extends Component {
 				<form onSubmit={this.handleSubmit}>
 					Type:
 					<select type='text' name='type' value={this.state.type}onChange={this.handleChange}>
-					<option value="">select</option>
-					<option value="water">water</option>
-					<option value = "gas/power">gas/power</option>
-					<option value="food">food</option>
-					<option value="transportation">transportation</option>
+						<option value="">select</option>
+						<option value="water">water</option>
+						<option value = "gas/power">gas/power</option>
+						<option value="food">food</option>
+						<option value="transportation">transportation</option>
 					</select><br/> 
 					Description:
 					<br/><textarea name='description'value={this.state.description} onChange={this.handleChange}/><br/>
