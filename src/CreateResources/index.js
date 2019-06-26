@@ -50,9 +50,9 @@ class CreateResources extends Component {
 			<div className="create">
 				<h3>Create Resource</h3>
 				<form onSubmit={this.handleSubmit}>
-					Type:
-					<select type='text' name='type' value={this.state.type}onChange={this.handleChange}>
-						<option value="">select</option>
+					<span>Type: </span>
+					<select type='text' name='type' value={this.state.type} onChange={this.handleChange}>
+						<option value="">select type</option>
 						<option value="water">water</option>
 						<option value = "gas/power">gas/power</option>
 						<option value="food">food</option>

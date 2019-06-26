@@ -60,6 +60,7 @@ class App extends Component {
     this.getBarrios();
     this.getAllUsersResources();
   }
+
   //THIS DATA WILL BE IN APP STATE AND USED IN REGISTER COMPONENT
   getMunicipalities = async()=>{
     try{
@@ -82,22 +83,30 @@ class App extends Component {
       console.log(err);
     }
   }
+
   //THIS DATA WILL BE IN APP STATE AND USED IN REGISTER COMPONENT
   getBarrios = async() =>{
-    // I want to fetch barrios 
+
     try {
       const response = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/auth/municipalities')
-      if(response.status !== 200){
+      
+      if(response.status !== 200) {
+
           throw Error(response.statusText);
       }
+
       const barriosParsed = await response.json();
+
       const data = barriosParsed.data
-      //console.log(data + "this is barrios data")
+
       const barriosList = []
+
       data.forEach((element)=>{
+
         barriosList.push(element);
+
       })
-      //console.log(barriosList);
+     
       this.setState({
         barrios: barriosList
       })
@@ -106,6 +115,7 @@ class App extends Component {
       console.log(err);
     }
   }
+
   //THIS DATA WILL BE IN APP STATE AND USED IN THE ALLRESOURCES COMPONENT
   getAllUsersResources = async()=> {
     let parseResource = null;
@@ -129,8 +139,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        
-        <h1>YUCAJU-App</h1>
+        <header>
+        <h1>YUCAJU App</h1>
+        </header>
 
         { this.state.loggedIn && this.state.showProfile ? <UserProfile state={this.state} displayResources={this.displayResources}/> : null}
         { this.state.loggedIn && this.state.showResources ? <AllResources state={this.state} displayProfile={this.displayProfile}/> : null }

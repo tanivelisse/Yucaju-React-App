@@ -37,7 +37,7 @@ The name Yocajú comes from the Taíno deity by that name, that was believed to 
 1. Add check-box to report safety status.
 2. And icons that represent type of emergency or if the user indicates he/she/they is not safe. 
 3. Add more components to display all users according to 'barrios' and their safety status. 
-4. Add weather alerts using 3rd party API. 
+4. Add weather alerts using 3rd party API.
 
 
 

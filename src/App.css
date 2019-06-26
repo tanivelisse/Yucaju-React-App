@@ -1,29 +1,43 @@
 
 body {
-  background: url(https://i.imgur.com/AR8LJFu.jpg);
-  background-size: cover;
-  background-position: center;
-  color: azure;
-  font-family: 'Catamaran', sans-serif;
+  color: gray;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14pt;
-  text-decoration-style: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 .App {
 	margin: 0 auto;
 	padding-bottom: 50px;
 	text-align: center;
+}
 
+header {
+	background: url(https://i.imgur.com/wxlzHVG.jpg);
+	background-size: cover;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Raleway', sans-serif;
+	font-weight: lighter;
+	font-size: 60px;
 }
 
 h1 {
-	background: rgba(190,229,153,.8);
 	color: azure;
 	margin: 5px;
-	text-decoration-style: bold;
 }
+
 h2 {
-	background: rgba(190,229,153,.8);
 	margin: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 h3 {
@@ -31,61 +45,94 @@ h3 {
 }
 
 h4 {
-	background: rgba(190,229,153,.8);
 	margin: 2px 5px;
 }
+
 .create {
 	margin: 5px;
-	background: rgba(190,229,153,.8);
 }
-
-
 
 .edit {
-	margin: 5px;
+	margin: 10px;
 	background: rgba(190,229,153,.8);
 }
+
+.AllResources {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 
 
 li {
+	margin: 10px;
+	border: 1px solid #BEE599;
 	list-style: none;
 	font-size: 14pt;
-}
-button {
-	background:  #BEE599 ;
-	border: 1px solid #427213;
-	border-radius: 20px;
+	width: 500px;
+	word-wrap: break-word;
 }
 
+button {
+	background:  #659933 ;
+	border: none;
+	border-radius: 5px;
+	margin: 5px;
+	padding: 3px;
+	font-size: 16px;
+	color: white;
+}
+
+button:hover {
+	box-shadow: 3px 3px 5px gray;
+}
 .navButtons {
 	height: 50px;
 	width: 300px;
-	font-family: 'Catamaran', sans-serif;
-	font-size: 18pt;
-	color: azure;
-}
-
-#oneResource {
-	background: rgba(190,229,153,.8); 
-	margin: 5px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16pt;
+	color: white;
 }
 
 select {
-	background: #BEE599 ;
-	border-radius: 5px;
+	background: #659933 ;
+	font-size: 16px;
+	border: none;
+	color: white;
+	padding: 2px;
+}
+
+select:hover {
+	box-shadow: 3px 3px 5px gray;
 }
 
 input {
-	border: 1px solid darkgreen;
+	border: 1px solid gray;
 	border-radius: 10px;
+	font-size: 14px;
 }
 
 textarea {
-	border: 1px solid darkgreen;
-	border-radius: 10px;
+	border: 1px solid #BEE599;
 	height:100px;
-	width: 200px;
+	width: 500px;
+	font-size: 14px;
 }
 
 
+@media (orientation: portrait) {
+	header {
+		font-size: 36px;
+	}
+
+	li {
+		width: 300px;
+	}
+
+	textarea{
+		width: 300px;
+	}
+}
 

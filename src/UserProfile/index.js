@@ -101,6 +101,7 @@ class UserProfile extends Component {
       	    }
     	})
   	}
+  	
   	//Edit Modal function
   	showModal = (resourceToEdit) => {
    	 	console.log(resourceToEdit + '<-- in showModal')
@@ -130,14 +131,10 @@ class UserProfile extends Component {
   	}
 
 	render(){
-		//console.log('resourceToEdit');
-		//console.log(this.state.resourceToEdit);
-		//console.log("user profile resources: ")
-		//console.log(this.state.resources);
-		//console.log(this.props);
+
 		return(
 			<div>
-				<h1>UserProfile</h1>
+				<h2>Profile</h2>
 				<h4>Username: {this.state.username}</h4>
 				<h4>Name: {this.state.name}</h4>
 				<h4>Municipality: {this.state.municipality}</h4>

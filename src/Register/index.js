@@ -77,18 +77,18 @@ class Register extends Component {
 			<div>
 				<h3>Register</h3>
 				<form onSubmit={this.handleSubmit}>
-					Username:
+					<span>Username: </span>
 					<input type="text" name='username' onChange={this.handleChange}/><br/>
-					Password:
+					<span>Password: </span>
 					<input type="password" name='password'  onChange={this.handleChange}/><br/>
-					Full Name:
+					<span>Full Name: </span> 
 					<input type='text' name='name' onChange={this.handleChange}/><br/>
-					Municipality:
+					<span>Municipality: </span>
 					<select name='municipality' placeholder='municipality' onChange={this.handleChange}>
 						<option value="">Select Municipality</option>
 							{ municipalityList }
 					</select><br/>
-					Barrio:
+					<span>Barrio: </span>
 					<select name='barrio' onChange={this.handleBarrioChange}>
 						<option value="">Select Barrio</option>
 							{ barrioList }

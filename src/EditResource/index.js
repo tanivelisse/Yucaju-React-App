@@ -1,8 +1,9 @@
 import React from 'react';
 
-//THIS COMPONENT RENDERS EDIT RESOURCES MODAL
+//THIS COMPONENT RENDERS EDIT RESOURCES 
 
 const EditResource = (props) =>  {
+
 
   return (
     <div className='edit'>
