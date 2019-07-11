@@ -8,7 +8,8 @@ class Login extends Component {
 		super();
 		this.state = {
 			username:'',
-			password:''
+			password:'',
+			alert:''
 		}
 	}
 
@@ -39,7 +40,13 @@ class Login extends Component {
 		}
 
 		//STATE IS LIFTED TO APP.JS
-		this.props.masterLogin(parseResponse.data.username, parseResponse.data._id)
+		if(parseResponse.data){
+			this.props.masterLogin(parseResponse.data.username, parseResponse.data._id)
+		} else if(parseResponse.message) {
+			this.setState({
+			alert: parseResponse.message
+		})
+		}
 	}
 
 	render(){
@@ -52,6 +59,7 @@ class Login extends Component {
         			Password:
         			<input type='password' name='password' onChange={this.handleChange}/><br/>
        				<button type='sumbit'>Login</button>
+       				<p>{this.state.alert}</p>
       			</form>
 			</div>
 		)
