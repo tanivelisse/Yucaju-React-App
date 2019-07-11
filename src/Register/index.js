@@ -63,15 +63,15 @@ class Register extends Component {
 		})
 
 		//RENDERS BARRIOS ACCORDING TO THE SELECTED MUNICIPALITY. 
-		const barrioList = this.props.barrios.map((name,i)=>{
+		const barrioList = this.props.barrios.map((barrio,i)=>{
 			//console.log(this.state.municipality);
 			//console.log(name.municipality);
-			if(name.municipality === this.state.municipality){
+			if(barrio.municipality === this.state.municipality){
 				return( 
-					<option key={i} value={name.barrio}> {name.barrio} </option> 
+					<option key={i} value={barrio.name}> {barrio.name} </option> 
 				)
 			}
-		})
+		});
 
 		return (
 			<div>

@@ -64,7 +64,7 @@ class App extends Component {
   //THIS DATA WILL BE IN APP STATE AND USED IN REGISTER COMPONENT
   getMunicipalities = async()=>{
     try{
-      const response = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/auth/municipalities')
+      const response = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/auth/municipalities-and-barrios')
       if(response.status !== 200){
           throw Error(response.statusText);
       }
@@ -88,7 +88,7 @@ class App extends Component {
   getBarrios = async() =>{
 
     try {
-      const response = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/auth/municipalities')
+      const response = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/auth/municipalities-and-barrios')
       
       if(response.status !== 200) {
 
@@ -96,7 +96,8 @@ class App extends Component {
       }
 
       const barriosParsed = await response.json();
-
+      console.log("barriosParsed");
+      console.log(barriosParsed);
       const data = barriosParsed.data
 
       const barriosList = []
@@ -121,6 +122,7 @@ class App extends Component {
     let parseResource = null;
     try{
     const foundResources = await fetch(process.env.REACT_APP_SERVER_URL + '/api/v1/resources')
+    
     parseResource = await foundResources.json();
 
     }catch(err){

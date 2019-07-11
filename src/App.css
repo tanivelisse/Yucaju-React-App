@@ -97,9 +97,10 @@ button:hover {
 }
 
 select {
-	background: #659933 ;
+	background: lightgray ;
 	font-size: 16px;
 	border: none;
+	border-radius: 3px;
 	color: white;
 	padding: 2px;
 }
@@ -110,7 +111,7 @@ select:hover {
 
 input {
 	border: 1px solid gray;
-	border-radius: 10px;
+	border-radius: 3px;
 	font-size: 14px;
 }
 
