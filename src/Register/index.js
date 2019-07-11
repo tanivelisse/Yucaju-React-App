@@ -10,7 +10,8 @@ class Register extends Component {
 			password:'',
 			name:'',
 			municipality: '',
-			barrio: ''
+			barrio: '',
+			alert:''
 		}
 	}
 
@@ -50,7 +51,14 @@ class Register extends Component {
 		}
 
 		//STATE IS LIFTED TO APP.JS
-		this.props.masterLogin(parseResponse.data.username, parseResponse.data._id)
+		if(parseResponse.data){
+			this.props.masterLogin(parseResponse.data.username, parseResponse.data._id)
+		} else if(parseResponse.message) {
+			this.setState({
+			alert: parseResponse.message
+		})
+		}
+		
 	}
 
 	render(){
@@ -94,6 +102,7 @@ class Register extends Component {
 							{ barrioList }
 					</select><br/>
 					<button>Register</button>
+					<p>{this.state.alert}</p>
 				</form>
 			</div>
 		)
