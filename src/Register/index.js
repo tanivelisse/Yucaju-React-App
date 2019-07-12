@@ -66,7 +66,8 @@ class Register extends Component {
 		//console.log(this.props.barrios);
 
 		//RENDERS MUNICIPALITIES DATA/ API CALL IN APP.JS
-		const municipalityList = this.props.municipalities.map((name, i) => {
+
+		const municipalityList = this.props.municipalities.sort().map((name, i) => {
 			 return(<option key={i} value={name}> {name} </option>)
 		})
 
@@ -75,6 +76,9 @@ class Register extends Component {
 			//console.log(this.state.municipality);
 			//console.log(name.municipality);
 			if(barrio.municipality === this.state.municipality){
+				let barriotOptionsList = [];
+				barriotOptionsList.push(barrio.municipality)
+				barriotOptionsList.sort()
 				return( 
 					<option key={i} value={barrio.name}> {barrio.name} </option> 
 				)
