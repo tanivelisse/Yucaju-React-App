@@ -8,9 +8,6 @@ The idea for this app was created to find a solution to the difficulty to commun
 
 The name Yocajú comes from the Taíno deity by that name, that was believed to live in "El Yunque Rain Forest". According to the myth he fought against the goddess Guabancex, also known as Juaracán, who was responsible for the hurricanes in the island. Up to this day, it is known that when the eye of a hurricane tries to enter the island through the rainforest's, it diverts north and the hurricane's impact on the island is reduced.
 
-
-![Yucaju Taino Deity Image](https://i.imgur.com/AR8LJFu.jpg)  
-
 ### User Stories
 
 1. The main users of this app will be residents of Puerto Rico.
@@ -18,7 +15,6 @@ The name Yocajú comes from the Taíno deity by that name, that was believed to 
 3. The user will sign up previous to the hurricane emergency with username, password, name, municipality and barrio.
 3. After sign-up/login the user will be redirected to his/hers/their profile page where he/she/they can create their resources post and click on the "all resources" button to access more resources in their neighborhood. 
  Users that are not residents of Puerto Rico will not register, but will be able to have access to the safety status reported by registered users.
-
 
 ### MVP
 
